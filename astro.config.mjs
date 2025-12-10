@@ -7,5 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  site: "https://devkuroi.github.io",
+  base: "proyecto-sistemas-operativos"
 });
