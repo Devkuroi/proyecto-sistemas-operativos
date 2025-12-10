@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="stylesheet" href="/src/styles/global.css">
+        <link rel="stylesheet" href="/src/styles/main.css">
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+    <div>
+		<slot />
+    </div>
+	</body>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+
+</html>
+
+<style>
+	html,
+	body {
+        margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+    body > div {
+
+    }
+
+
+</style>
