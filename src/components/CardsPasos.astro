@@ -1,0 +1,13 @@
+---
+const { titulo, imagen, descripcion } = Astro.props;
+---
+
+<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+    <h1 class="text-center font-medium text-2xl text-heading">{titulo}</h1>
+    <img class="rounded-base" src={imagen} alt="" />
+    {descripcion && (
+            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                {descripcion}
+            </h5>
+    )}
+</div>

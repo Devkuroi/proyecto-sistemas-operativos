@@ -26,119 +26,53 @@ import paso24 from "../assets/Entrega2/terminar instalacion.png";
 import comprobacionInternet from "../assets/Entrega2/comprobacion de internet.png"
 import comprobacionHerramientras from "../assets/Entrega2/comprobacion herramientas.png"
 import comprobacionHerramientras2 from "../assets/Entrega2/comprobacion herramientas (2).png"
+import esquema from "../assets/Entrega2/esquema.png";
+
+import CardPaso from "../components/CardsPasos.astro";
+
+const pasos = [
+    { titulo: "Paso 1", imagen: paso1.src, descripcion: "Elegimos el idioma del teclado" },
+    { titulo: "Paso 2", imagen: paso2.src, descripcion: "Elegimos la ubicacion" },
+    { titulo: "Paso 3", imagen: paso3.src, descripcion: "Elegimos el teclado" },
+    { titulo: "Paso 4", imagen: paso4.src, descripcion: "Escogemos nombre de la maquina" },
+    { titulo: "Paso 5", imagen: paso5.src, descripcion: "Creamos la clave del usuario root" },
+    { titulo: "Paso 6", imagen: paso6.src, descripcion: "Creamos usuario" },
+    { titulo: "Paso 7", imagen: paso7.src, descripcion: "Creamos contraseña del usuario" },
+    { titulo: "Paso 8", imagen: paso8.src, descripcion: "Escogemos metodo de particionamiento manual" },
+    { titulo: "Paso 9", imagen: paso9.src, descripcion: "Escogemos disco que vamos a particionar" },
+    { titulo: "Paso 10", imagen: paso10.src, descripcion: "Creamos tabla de particiones" },
+    { titulo: "Paso 11", imagen: paso11.src, descripcion: "Seleccionamos la tabla de particiones que creamos" },
+    { titulo: "Paso 12", imagen: paso12.src, descripcion: "Creamos una particion" },
+    { titulo: "Paso 13", imagen: paso13.src, descripcion: "Escogemos tamaño de la particion /swap" },
+    { titulo: "Paso 14", imagen: paso14.src, descripcion: "Escogemos como usar la particion, en este caso swap" },
+    { titulo: "Paso 15", imagen: paso15.src, descripcion: "Finalizamos la creacion de la particion /swap" },
+    { titulo: "Paso 16", imagen: paso16.src, descripcion: "Escogemos tamaño de la particion /home" },
+    { titulo: "Paso 17", imagen: paso17.src, descripcion: "Finalizamos la creacion de la particion /home" },
+    { titulo: "Paso 18", imagen: paso18.src, descripcion: "Escogemos tamaño de la particion /" },
+    { titulo: "Paso 19", imagen: paso19.src, descripcion: "Finalizamos la creacion de la particion /" },
+    { titulo: "Paso 20", imagen: paso20.src, descripcion: "Finalizamos el particionamiento" },
+    { titulo: "Paso 21", imagen: paso21.src, descripcion: "Seleccionamos si para escribir los cambios en el disco" },
+    { titulo: "Paso 22", imagen: paso22.src, descripcion: "Deseleccionamos las opciones de escritorio debian y GNOME" },
+    { titulo: "Paso 23", imagen: paso23.src, descripcion: "Seleccionamos el disco donde se instalara el arranque" },
+    { titulo: "Paso 24", imagen: paso24.src, descripcion: "Terminamos la instalacion reiniciando el sistema" },
+    { titulo: "Comprobacion de la conexion a internet", imagen: comprobacionInternet.src, descripcion: "Comprobamos la conexion usando el comando ping -c 4 debian.org" },
+    { titulo: "Comprobacion de herramientas", imagen: comprobacionHerramientras.src, descripcion: "Comprobamos que las herramientas se instalaron correctamente" },
+    { titulo: "Comprobacion de herramientas", imagen: comprobacionHerramientras2.src, descripcion: "Comprobamos que las herramientas se instalaron correctamente" },
+    { titulo: "Esquema de particionamiento", imagen: esquema.src, descripcion: "Verificando esquema de particionamiento" },
+];
 ---
 
 <div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-dark pt-20">
     <div class="text-center mb-5">
-        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 2</h1>
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 2 actividad 1</h1>
         <p class="text-heading text-xl">En esta entrega veremos como instalar la distribucion de linux debian en entorno consola</p>
         <p class="text-heading text-xl">Dato curioso: Debian es la distribución más usada… sin que la gente lo sepa</p>
     </div>
     <div class="flex flex-wrap justify-center items-center gap-4">
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 1</h1>
-            <img class="rounded-base" src={paso1.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Elegimos el idioma del teclado</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 2</h1>
-            <img class="rounded-base" src={paso2.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Elegimos el idioma del sistema</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 3</h1>
-            <img class="rounded-base" src={paso3.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Damos click en los tres puntos</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 4</h1>
-            <img class="rounded-base" src={paso4.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Damos click en iniciar editor de almacenamiento</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 5</h1>
-            <img class="rounded-base" src={paso5.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Iniciamos el editor de almacenamiento</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 6</h1>
-            <img class="rounded-base" src={paso6.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos una tabla de particiones</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 7</h1>
-            <img class="rounded-base" src={paso7.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos una tabla de particiones GPT</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 8</h1>
-            <img class="rounded-base" src={paso8.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos una particion</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 9</h1>
-            <img class="rounded-base" src={paso9.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos la particion /boot</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 10</h1>
-            <img class="rounded-base" src={paso10.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos la particiones /boot/efi</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 11</h1>
-            <img class="rounded-base" src={paso11.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Damos click en montar la particion /boot/efi</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 12</h1>
-            <img class="rounded-base" src={paso12.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Montamos la particion /boot/efi</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 13</h1>
-            <img class="rounded-base" src={paso13.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos la particion /swap</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 14</h1>
-            <img class="rounded-base" src={paso14.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos la particion raiz</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 15</h1>
-            <img class="rounded-base" src={paso15.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Creamos la particion /home</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 16</h1>
-            <img class="rounded-base" src={paso16.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Volvemos a la instalacion</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 17</h1>
-            <img class="rounded-base" src={paso17.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Damos continuar para seguir con la instalacion</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 18</h1>
-            <img class="rounded-base" src={paso18.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Usamos la tabla de particiones dando siguiente</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 19</h1>
-            <img class="rounded-base" src={paso19.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Empezamos la instalacion de fedora</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Paso 20</h1>
-            <img class="rounded-base" src={paso20.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Terminamos la instalacion reiniciando el sistema</h5>
-        </div>
-        <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-            <h1 class="text-center font-medium text-2xl text-heading">Fedora funcionando correctamente</h1>
-            <img class="rounded-base" src={comprobacionInternet.src} alt=""/>
-            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Sistema fedora funcionando con 2 editores y 2 navegadores </h5>
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            {pasos.map(step => (
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+            ))}
         </div>
     </div>
 </div>
