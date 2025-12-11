@@ -7,7 +7,7 @@ export default {
         "./node_modules/flowbite/**/*.js"
     ],
     plugins: [
-        require('flowbite/plugin'),
-        require('flowbite-typography/plugin')
+        flowbite,
+        typography
     ],
 };

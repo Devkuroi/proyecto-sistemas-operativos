@@ -9,5 +9,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: "https://devkuroi.github.io",
-  base: "/proyecto-sistemas-operativos",
+  base: "proyecto-sistemas-operativos"
 });
