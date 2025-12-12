@@ -1,0 +1,79 @@
+---
+import fs from "fs";
+const concurrencia = fs.readFileSync("./src/assets/Concurrencia.txt", "utf8");
+const contador = fs.readFileSync("./src/assets/Contador.txt", "utf8");
+const incremento = fs.readFileSync("./src/assets/Incremento.txt", "utf8");
+---
+<div class="gap-4 w-full h-full bg-gray-950 pt-20">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 4 actividad 3</h1>
+        <p class="text-heading text-xl">En esta entrega veremos el manejo de hilos en Java y como evita race conditions</p>
+    </div>
+    <div class="max-w-3xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-heading my-6">
+            Clase Concurrencia(Clase main)
+        </h1>
+        <p class="text-heading text-xl mb-6">Esta clase Concurrencia es la encargada de crear los hilos, inicializar los hilos y inicar el programa de java o en lenguaje tecnico seria la clase main</p>
+
+        <div class="bg-gray-900 text-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+
+            <div class="flex space-x-2 px-4 py-2 bg-gray-800">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+
+            <pre class="p-4 overflow-x-auto text-sm">
+<code class="language-java">{concurrencia}</code>
+      </pre>
+        </div>
+
+    </div>
+    <div class="max-w-3xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-heading my-6">
+            Clase Contador
+        </h1>
+        <p class="text-heading text-xl mb-6">Esta clase es la encargada de controlar como se incrementa el contador para que no haya race condition</p>
+
+        <div class="bg-gray-900 text-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+
+            <div class="flex space-x-2 px-4 py-2 bg-gray-800">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+
+            <pre class="p-4 overflow-x-auto text-sm">
+<code class="language-java">{contador}</code>
+      </pre>
+        </div>
+
+    </div>
+    <div class="max-w-3xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-heading my-6">
+            Clase Incremento
+        </h1>
+        <p class="text-heading text-xl mb-6">Esta clase Incremento es la encargada de incrementar el contador en 1</p>
+
+        <div class="bg-gray-900 text-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+
+            <div class="flex space-x-2 px-4 py-2 bg-gray-800">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+
+            <pre class="p-4 overflow-x-auto text-sm">
+<code class="language-java">{incremento}</code>
+      </pre>
+        </div>
+        <div class="text-center mb-5">
+            <p class="text-heading text-xl">El programa evita las race conditions usando synchronized, que convierte al método en una región crítica. Esto significa que solo un hilo puede entrar a la vez. Cuando un hilo accede a un método synchronized, adquiere el monitor o lock del objeto (en este caso, Contador). Mientras el hilo actual no termine, ningún otro hilo puede ejecutar métodos synchronized del mismo objeto. De esta forma, nunca habrá dos hilos ejecutando incrementar() simultáneamente y el acceso se vuelve atómico.</p>
+        </div>
+    </div>
+</div>
+
+
