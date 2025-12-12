@@ -1,0 +1,31 @@
+---
+import CardPaso from "./CardsPasos.astro";
+import captura1 from "../assets/Entrega13/captura_1.png";
+import captura2 from "../assets/Entrega13/captura_2.png";
+import captura3 from "../assets/Entrega13/captura_3.png";
+import captura4 from "../assets/Entrega13/captura_4.png";
+import captura5 from "../assets/Entrega13/captura_5.png";
+import captura6 from "../assets/Entrega13/captura_6.png";
+
+const pasos = [
+    {titulo: "Paso 1", imagen: captura1.src, descripcion: "Descagar Minikube desde la api de google"},
+    {titulo: "Paso 2", imagen: captura2.src, descripcion: "Instalar Minikube"},
+    {titulo: "Paso 3", imagen: captura3.src, descripcion: "Descagar kubectl y lo instalamos en la distribucion"},
+    {titulo: "Paso 4", imagen: captura4.src, descripcion: "Iniciamos Minikube usando el driver de docker"},
+    {titulo: "kubectl get nodes", imagen: captura5.src, descripcion: "Obtenemos los nodos"},
+    {titulo: "kubetctl version", imagen: captura6.src, descripcion: "Obtenemos la version de kubectl"},
+]
+---
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega13">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 1 actividad 6</h1>
+        <p class="text-heading text-xl">En esta entrega veremos como instalar Minikube y Kubectl</p>
+    </div>
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+        {pasos.map(step => (
+                <div class="mb-4 break-inside-avoid">
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+                </div>
+        ))}
+    </div>
+</div>

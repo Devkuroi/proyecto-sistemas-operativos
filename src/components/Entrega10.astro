@@ -1,0 +1,35 @@
+---
+import CardPaso from "./CardsPasos.astro";
+import captura1 from "../assets/Entrega10/Captura_1.png";
+import captura2 from "../assets/Entrega10/Captura_2.png";
+import captura3 from "../assets/Entrega10/Captura_3.png";
+import captura4 from "../assets/Entrega10/Captura_4.png";
+import captura5 from "../assets/Entrega10/Captura_5.png";
+import captura6 from "../assets/Entrega10/Captura_6.png";
+import captura7 from "../assets/Entrega10/Captura_7.png";
+import captura8 from "../assets/Entrega10/Captura_8.png";
+
+const pasos = [
+    {titulo: "Ejecutar contenedor", imagen: captura1.src, descripcion: "Ejecuta un contenedor en modo interactivo"},
+    {titulo: "Ejecutar imagen en segundo plano", imagen: captura2.src, descripcion: ""},
+    {titulo: "docker ps", imagen: captura3.src, descripcion: "Muestra los contenedores en ejecución actualmente."},
+    {titulo: "docker exec", imagen: captura4.src, descripcion: "Ejecuta un comando dentro de un contenedor ya en ejecución."},
+    {titulo: "docker logs", imagen: captura5.src, descripcion: "Muestra los logs (salida estándar) de un contenedor."},
+    {titulo: "Docker inspect", imagen: captura6.src, descripcion: "Inspecciona el contenedor en ejecucion"},
+    {titulo: "Docker inspect", imagen: captura7.src, descripcion: "Inspecciona el estado del contenedor"},
+    {titulo: "docker stop y rm", imagen: captura8.src, descripcion: "Docker stop Detiene un contenedor en ejecucion y docker rm elimina un contenedor detenido"},
+]
+---
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega10">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 3 actividad 4</h1>
+        <p class="text-heading text-xl">En esta entrega veremos comandos de docker y su funcion</p>
+    </div>
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+        {pasos.map(step => (
+                <div class="mb-4 break-inside-avoid">
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+                </div>
+        ))}
+    </div>
+</div>

@@ -1,0 +1,71 @@
+---
+import captura1 from "../assets/Entrega12/docker_tag.png";
+import captura2 from "../assets/Entrega12/docker_push.png";
+import captura3 from "../assets/Entrega12/docker_push2.png";
+import captura4 from "../assets/Entrega12/imagen_dockerhub.png";
+import captura5 from "../assets/Entrega12/repositorio_dockerhub.png";
+
+---
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega12">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 2 actividad 5</h1>
+        <p class="text-heading text-xl">En esta entrega veremos como publicar una imagen de docker en Docker hub</p>
+    </div>
+    <div class="flex flex-wrap justify-around w-full">
+        <div>
+            <ol class="relative border-s max-w-sm border-default mt-7">
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 1</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={captura1.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Etiquetar la imagen (docker tag)</h3>
+                    <p class="mb-4 text-base font-normal text-body">Docker solo permite subir imágenes cuyo nombre siga este formato usuario/name:tag</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 2</time>
+                    <h3 class="text-lg font-semibold text-heading my-2">Autenticacion</h3>
+                    <p class="text-base font-normal text-body">Tendremos que tener una cuenta de docker para continuar con la publicacion de la imagen en docker hub ya que despues de etiquetar la imagen nos pedira autenticarnos</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 3</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={captura2.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Subir la imagen a Docker Hub</h3>
+                    <p class="text-base font-normal text-body">usamos docker push usuario/name:tag, esto enviará la imagen a tu repositorio en Docker Hub.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 4</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={captura3.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Finalizar correctamente la publicacion de la imagen de docker</h3>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 4</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={captura5.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Verificar que la imagen subió correctamente</h3>
+                    <p class="text-base font-normal text-body">entra a tu perfil > Repositories. Debería aparecer ahí tu imagen.</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 6</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={captura4.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Comprobamos en la imagen de docker en docker hub</h3>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

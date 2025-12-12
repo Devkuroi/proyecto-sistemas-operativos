@@ -1,0 +1,42 @@
+# Usar Rocky Linux 9 como base
+FROM rockylinux:9
+
+
+
+# Actualizar el sistema
+RUN dnf update -y
+
+
+
+# Instalar herramientas básicas
+RUN dnf install -y vim nano Emacs
+
+
+
+# Instalar herramientas de desarrollo
+RUN dnf install -y git curl wget --allowerasing
+
+
+
+# Instalar compiladores
+RUN dnf install -y gcc g++ make
+
+
+
+# Crear y configurar usuario no root (por seguridad)
+RUN useradd -m -s /bin/bash developer
+
+
+
+# Cambiar al usuario developer
+USER developer
+
+
+
+# Establecer directorio de trabajo
+WORKDIR /home/developer
+
+
+
+# Mensaje al iniciar el contenedor
+CMD ["echo", "El contenedor Rocky Linux con herramientas de desarrollo totalmente listo :D"]

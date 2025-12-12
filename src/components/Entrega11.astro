@@ -1,0 +1,59 @@
+---
+
+import CardPaso from "./CardsPasos.astro";
+import fs from "fs";
+
+import captura1 from "../assets/Entrega11/Dockerfile_mod.png";
+import captura2 from "../assets/Entrega11/Libreoffice.png";
+import captura3 from "../assets/Entrega11/Scripts_de_automatizacion.png";
+import captura4 from "../assets/Entrega11/Creacion de imagen.png";
+import captura5 from "../assets/Entrega11/Prueba_docker.png";
+import captura6 from "../assets/Entrega11/contenedor_interactivo.png";
+import captura7 from "../assets/Entrega11/Comparacion de imagenes.png";
+
+const dockerfilemod = fs.readFileSync("./src/assets/dockerfile-modificado.txt", "utf8");
+
+const pasos = [
+    {titulo: "Dockerfile modificado", imagen: captura1.src, descripcion: "Modificar Dockerfile con las nuevas herramientas que tendra la imagen"},
+    {titulo: "Instalando libreoffice", imagen: captura2.src, descripcion: "Instalacion de libreoffice en la imagen modificada"},
+    {titulo: "Ejecutar script", imagen: captura3.src, descripcion: "Se ejecuta el script que colocamos en el Dockerfile"},
+    {titulo: "Finaliza creacion de la imagen", imagen: captura4.src, descripcion: "Creacion de la imagen modificada"},
+    {titulo: "Prueba docker", imagen: captura5.src, descripcion: "Se realiza una prueba de la imagen modificada"},
+    {titulo: "Prueba en contenedor interactivo", imagen: captura6.src, descripcion: "Se realiza una prueba de la imagen modificada"},
+    {titulo: "Comparacion de imagenes", imagen: captura7.src, descripcion: "Se comparan los tamaños de la imagen original y de la imagen modificada"},
+]
+---
+
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega11">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 1 actividad 5</h1>
+        <p class="text-heading text-xl">En esta entrega veremos como se crea una imagen modificada a partir de una imagen ya creada</p>
+    </div>
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+        {pasos.map(step => (
+                <div class="mb-4 break-inside-avoid">
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+                </div>
+        ))}
+    </div>
+    <div class="max-w-3xl mx-auto">
+
+        <h1 class="text-3xl font-bold text-heading my-6">
+            Dockerfile modificado
+        </h1>
+
+        <div class="bg-gray-900 text-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+
+            <div class="flex space-x-2 px-4 py-2 bg-gray-800">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+
+            <pre class="p-4 overflow-x-auto text-sm">
+<code class="language-java">{dockerfilemod}</code>
+      </pre>
+        </div>
+    </div>
+
+</div>

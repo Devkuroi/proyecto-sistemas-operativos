@@ -1,3 +1,37 @@
 ---
+import captura1 from "../assets/Entrega8/Captura_1.png"
+import captura3 from "../assets/Entrega8/Captura_3.png"
+import captura4 from "../assets/Entrega8/Captura_4.png"
+import captura5 from "../assets/Entrega8/Captura_5.png"
+import captura6 from "../assets/Entrega8/Captura_6.png"
+import captura7 from "../assets/Entrega8/Captura_7.png"
+import captura8 from "../assets/Entrega8/Captura_8.png"
+import captura9 from "../assets/Entrega8/Captura_9.png"
+import CardPaso from "./CardsPasos.astro";
 
+const pasos = [
+    {titulo: "Paso 1", imagen: captura1.src, "Descripcion": "Actualizamos el sistema"},
+    {titulo: "Paso 2", imagen: captura3.src, descripcion: "Instalamos dnf-plugins-core, en este caso ya esta instalada"},
+    {titulo: "Paso 3", imagen: captura4.src, descripcion: "Agregar el repositorio oficial de Docker"},
+    {titulo: "Paso 4", imagen: captura5.src, descripcion: "Instalar Docker (todos los paquetes pedidos)"},
+    {titulo: "Paso 5", imagen: captura6.src, descripcion: "Habilitamos y permitirmos usar Docker sin sudo"},
+    {titulo: "Paso 6", imagen: captura7.src, descripcion: "Probar que funciona"},
+    {titulo: "Docker version", imagen: captura8.src, descripcion: "Verificar docker version"},
+    {titulo: "Docker Info", imagen: captura9.src, descripcion: "Informacion de docker "},
+
+]
 ---
+
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega8">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 1 actividad 4</h1>
+        <p class="text-heading text-xl">En esta entrega veremos como instalar Docker Engine en fedora con entorno grafico</p>
+    </div>
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+        {pasos.map(step => (
+                <div class="mb-4 break-inside-avoid">
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+                </div>
+        ))}
+    </div>
+</div>

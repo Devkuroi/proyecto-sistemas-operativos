@@ -4,7 +4,7 @@ const concurrencia = fs.readFileSync("./src/assets/Concurrencia.txt", "utf8");
 const contador = fs.readFileSync("./src/assets/Contador.txt", "utf8");
 const incremento = fs.readFileSync("./src/assets/Incremento.txt", "utf8");
 ---
-<div class="gap-4 w-full h-full bg-gray-950 pt-20">
+<div class="gap-4 w-full h-full bg-gray-950 pt-20" id="entrega7">
     <div class="text-center mb-5">
         <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 4 actividad 3</h1>
         <p class="text-heading text-xl">En esta entrega veremos el manejo de hilos en Java y como evita race conditions</p>
@@ -70,7 +70,7 @@ const incremento = fs.readFileSync("./src/assets/Incremento.txt", "utf8");
 <code class="language-java">{incremento}</code>
       </pre>
         </div>
-        <div class="text-center mb-5">
+        <div class="text-center mt-5">
             <p class="text-heading text-xl">El programa evita las race conditions usando synchronized, que convierte al método en una región crítica. Esto significa que solo un hilo puede entrar a la vez. Cuando un hilo accede a un método synchronized, adquiere el monitor o lock del objeto (en este caso, Contador). Mientras el hilo actual no termine, ningún otro hilo puede ejecutar métodos synchronized del mismo objeto. De esta forma, nunca habrá dos hilos ejecutando incrementar() simultáneamente y el acceso se vuelve atómico.</p>
         </div>
     </div>

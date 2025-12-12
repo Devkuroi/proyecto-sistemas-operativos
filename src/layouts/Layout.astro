@@ -11,7 +11,7 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Proyecto sistemas operativos</title>
 	</head>
-	<body>
+	<body class="bg-gray-950">
     <div>
 		<slot />
     </div>
@@ -23,6 +23,9 @@ import "../styles/global.css";
 </html>
 
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
 	html,
 	body {
         margin: 0;

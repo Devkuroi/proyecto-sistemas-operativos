@@ -1,0 +1,53 @@
+# === PARTE 1: DOCKERFILE ANTERIOR ===
+# Actualizar el sistema
+RUN dnf update -y
+
+# Instalar herramientas básicas
+RUN dnf install -y vim nano emacs
+
+# Instalar herramientas de desarrollo
+RUN dnf install -y git curl wget --allowerasing
+
+# Instalar compiladores
+RUN dnf install -y gcc g++ make
+
+
+# === PARTE 2: MODIFICACION, NUEVAS HERRAMIENTAS (OFIMÁTICA) ===
+# Instalar herramientas ofimáticas
+RUN dnf install -y libreoffice inkscape gimp --allowerasing
+
+
+# === PARTE 3: SCRIPTS DE AUTOMATIZACIÓN ===
+# Crear directorio para scripts
+RUN mkdir -p /opt/scripts
+
+# Crear script de limpieza
+RUN echo '#!/bin/bash' > /opt/scripts/limpiar.sh && \
+    echo 'echo "Limpiando archivos temporales..."' >> /opt/scripts/limpiar.sh && \
+    echo 'find /tmp -type f -mtime +1 -delete 2>/dev/null' >> /opt/scripts/limpiar.sh && \
+    echo 'echo "Listo!"' >> /opt/scripts/limpiar.sh && \
+    chmod +x /opt/scripts/limpiar.sh
+
+# Crear script de información del sistema
+RUN echo '#!/bin/bash' > /opt/scripts/info.sh && \
+    echo 'echo "=== INFORMACIÓN DEL SISTEMA ==="' >> /opt/scripts/info.sh && \
+    echo 'echo "Usuario: $(whoami)"' >> /opt/scripts/info.sh && \
+    echo 'echo "Directorio: $(pwd)"' >> /opt/scripts/info.sh && \
+    echo 'echo "Fecha: $(date)"' >> /opt/scripts/info.sh && \
+    chmod +x /opt/scripts/info.sh
+
+
+# === PARTE 4: CONFIGURACIÓN DE USUARIO ===
+# Crear usuario (no usar root por seguridad)
+RUN useradd -m -s /bin/bash developer
+
+# Cambiar al usuario developer
+USER developer
+
+# Establecer directorio de trabajo
+WORKDIR /home/developer
+
+
+# === PARTE 5: MENSAJE MEJORADO ===
+# Mensaje al iniciar el contenedor
+CMD ["bash", "-c", "echo '==============================' && echo 'Contenedor Rocky Linux MODIFICADO' && echo 'Herramientas extra: LibreOffice, GIMP' && echo 'Scripts disponibles: limpiar.sh, info.sh' && echo '==============================' && bash"]
