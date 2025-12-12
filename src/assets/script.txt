@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#Funcion para mostrar las opciones del script
+mostrar_ayuda() {
+    echo "Uso: $0 [opción]"
+    echo
+    echo "Opciones disponibles:"
+    echo "  limpiar        - Limpia archivos temporales"
+    echo "  actualizar     - Actualiza el sistema"
+    echo "  completo       - Limpia + actualiza + autoremove"
+    echo "  ayuda          - Muestra este mensaje"
+    echo
+    exit 0
+}
+
+#Funcion para limpiar los archivos temporales y el cache
+limpiar_temporales() {
+    echo "Limpiando archivos temporales..."
+    rm -rf /tmp/* 2>/dev/null || echo "⚠ No se pudo limpiar /tmp"
+    rm -rf ~/.cache/* 2>/dev/null || echo "⚠ No se pudo limpiar ~/.cache"
+    echo "✔ Limpieza completada."
+}
+
+#Funcion encargada de actualizar el sistema
+actualizar_sistema() {
+    echo "Actualizando lista de paquetes..."
+    if ! sudo apt update -y; then
+        echo "✖ Error ejecutando 'apt update'"
+        exit 1
+    fi
+
+    echo "Instalando actualizaciones..."
+    if ! sudo apt upgrade -y; then
+        echo "✖ Error ejecutando 'apt upgrade'"
+        exit 1
+    fi
+
+    echo "➤ Eliminando paquetes innecesarios..."
+    sudo apt autoremove -y
+
+    echo "➤ Limpiando caché..."
+    sudo apt autoclean -y
+
+    echo "✔ Sistema actualizado correctamente."
+}
+#Opciones
+case "$1" in
+    limpiar)
+        limpiar_temporales
+        ;;
+    actualizar)
+        actualizar_sistema
+        ;;
+    completo)
+        limpiar_temporales
+        actualizar_sistema
+        ;;
+    ayuda|"")
+        mostrar_ayuda
+        ;;
+    *)
+        echo "Opción no válida: $1"
+        echo "Use '$0 ayuda' para ver las opciones."
+        exit 1
+        ;;
+esac
+
+exit 0

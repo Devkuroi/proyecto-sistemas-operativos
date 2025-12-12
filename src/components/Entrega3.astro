@@ -1,3 +1,87 @@
 ---
+import vim1 from "../assets/Entrega3/instalar vim.png"
+import vim2 from "../assets/Entrega3/configurar vim.png"
+import vim3 from "../assets/Entrega3/probar vim.png"
+import nano1 from "../assets/Entrega3/instalar nano.png"
+import nano2 from "../assets/Entrega3/configurar nano.png"
+import nano3 from "../assets/Entrega3/probar nano.png"
 
+import CardPaso from "./CardsPasos.astro";
 ---
+
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20">
+    <div class="text-center mb-5">
+        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 1 actividad 2</h1>
+        <p class="text-heading text-xl">En esta entrega veremos como instalar los editores vim y nano</p>
+    </div>
+    <div class="flex flex-wrap justify-around w-full">
+        <div>
+            <h1 class="text-gray-200 font-extrabold text-lg">Como instalar Vim</h1>
+            <ol class="relative border-s max-w-sm border-default mt-7">
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 1</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={vim1.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Instalar vim</h3>
+                    <p class="mb-4 text-base font-normal text-body">Instalamos vim usando el comando apt install vim -y</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 2</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={vim2.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Configurar vim</h3>
+                    <p class="text-base font-normal text-body">Usamos el comando vim ~/.vimrc para abrir el archivo de configuracion de vim y colocamos la configuracion de la imagen, luego presionamos la tecla ESC y usamos el comando :wq para guardar el archivo de configuracion</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 3</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={vim3.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Comprobamos si funciona</h3>
+                    <p class="text-base font-normal text-body">Comprobamos que funciona con un archivo de ejemplo en este caso usamos el comando vim ejemplo.py para crear un archivo de python</p>
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <h1 class="text-gray-200 font-extrabold text-lg">Como instalar nano</h1>
+            <ol class="relative border-s border-default max-w-sm mt-7">
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 1</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={nano1.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Instalar nano</h3>
+                    <p class="mb-4 text-base font-normal text-body">Instalamos vim usando el comando apt install nano -y</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 2</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={nano2.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Configurar vim</h3>
+                    <p class="text-base font-normal text-body">Usamos el comando nano ~/.nanorc para abrir el archivo de configuracion de vim y colocamos la configuracion de la imagen, luego presionamos CTRL + O para guardar el archivo de configuracion y luego CTRL + X para salir</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-brand-softer rounded-full -start-3 ring-8 ring-buffer"></span>
+                    <time class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Paso 3</time>
+                    <div class="w-full h-full rounded-xl overflow-hidden my-3 border border-default">
+                        <img src={nano3.src} class="w-full h-full object-cover"  alt=""/>
+                    </div>
+                    <h3 class="text-lg font-semibold text-heading my-2">Comprobamos si funciona</h3>
+                    <p class="text-base font-normal text-body">Comprobamos que funciona con un archivo de ejemplo en este caso usamos el comando vim ejemplo.py para crear un archivo de python</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
