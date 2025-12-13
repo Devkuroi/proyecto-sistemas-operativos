@@ -11,7 +11,7 @@ import captura5 from "../assets/Entrega11/Prueba_docker.png";
 import captura6 from "../assets/Entrega11/contenedor_interactivo.png";
 import captura7 from "../assets/Entrega11/Comparacion de imagenes.png";
 
-const dockerfilemod = fs.readFileSync("./src/assets/dockerfile-modificado.txt", "utf8");
+const dockerfilemod = fs.readFileSync("./src/assets/Dockerfile-modificado.txt", "utf8");
 
 const pasos = [
     {titulo: "Dockerfile modificado", imagen: captura1.src, descripcion: "Modificar Dockerfile con las nuevas herramientas que tendra la imagen"},
@@ -24,7 +24,7 @@ const pasos = [
 ]
 ---
 
-<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20" id="entrega11">
+<div class="flex flex-col justify-center items-center gap-4 w-full h-full bg-gray-950 pt-20 px-10" id="entrega11">
     <div class="text-center mb-5">
         <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 1 actividad 5</h1>
         <p class="text-heading text-xl">En esta entrega veremos como se crea una imagen modificada a partir de una imagen ya creada</p>
@@ -36,7 +36,7 @@ const pasos = [
                 </div>
         ))}
     </div>
-    <div class="max-w-3xl mx-auto">
+    <div class="w-full max-w-3xl  mx-auto">
 
         <h1 class="text-3xl font-bold text-heading my-6">
             Dockerfile modificado

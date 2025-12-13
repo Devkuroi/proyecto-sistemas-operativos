@@ -1,139 +1,124 @@
 ---
-import ps from "../assets/Entrega6/ps aux.png"
-import top from "../assets/Entrega6/top.png"
-import htop from "../assets/Entrega6/htop.png"
-import pstree from "../assets/Entrega6/pstree -p.png"
-import pgrep from "../assets/Entrega6/pgrep.png"
-import kill from "../assets/Entrega6/kill.png"
-import killTerminarProceso from "../assets/Entrega6/terminar proceso.png"
-import killall from "../assets/Entrega6/killall.png"
-import killallTerminarProceso from "../assets/Entrega6/killall terminar procesos.png"
-import pkill from "../assets/Entrega6/pkill.png"
-import pkillTerminarProceso from "../assets/Entrega6/pkill terminar proceso.png"
-import nice from "../assets/Entrega6/nice.png"
-import renice from "../assets/Entrega6/renice.png"
-import procInfoProceso from "../assets/Entrega6/proc infoproceso.png"
-import procInfoCPU from "../assets/Entrega6/proc cpuinfo.png"
-import procInfoMem from "../assets/Entrega6/proc meminfo.png"
-import estadosProcesos from "../assets/Entrega6/estados de los procesos.png"
+
+import ps from "../assets/Entrega6/ps aux.png";
+import top from "../assets/Entrega6/top.png";
+import htop from "../assets/Entrega6/htop.png";
+import pstree from "../assets/Entrega6/pstree -p.png";
+import pgrep from "../assets/Entrega6/pgrep.png";
+
+import kill from "../assets/Entrega6/kill.png";
+import killall from "../assets/Entrega6/killall.png";
+import pkill from "../assets/Entrega6/pkill.png";
+import killTerminarProceso from "../assets/Entrega6/terminar proceso.png";
+import killallTerminarProceso from "../assets/Entrega6/killall terminar procesos.png";
+import pkillTerminarProceso from "../assets/Entrega6/pkill terminar proceso.png";
+
+import nice from "../assets/Entrega6/nice.png";
+import renice from "../assets/Entrega6/renice.png";
+
+import procInfoProceso from "../assets/Entrega6/proc infoproceso.png";
+import procInfoCPU from "../assets/Entrega6/proc cpuinfo.png";
+import procInfoMem from "../assets/Entrega6/proc meminfo.png";
+
+import estadosProcesos from "../assets/Entrega6/estados de los procesos.png";
+
+import CardPaso from "../components/CardsPasos.astro";
+
+const monitoreo = [
+    { titulo: "ps aux", imagen: ps.src, descripcion: "Muestra información detallada de todos los procesos." },
+    { titulo: "top", imagen: top.src, descripcion: "Monitor en tiempo real de CPU y memoria." },
+    { titulo: "htop", imagen: htop.src, descripcion: "Versión mejorada de top con interfaz interactiva." },
+    { titulo: "pstree -p", imagen: pstree.src, descripcion: "Muestra los procesos en forma de árbol." },
+    { titulo: "pgrep", imagen: pgrep.src, descripcion: "Busca procesos por nombre y devuelve su PID." }
+];
+
+const gestion = [
+    { titulo: "kill", imagen: kill.src, descripcion: "Envía señales a procesos por PID." },
+    { titulo: "kill terminar proceso", imagen: killTerminarProceso.src, descripcion: "Uso de kill para forzar la terminación de un proceso.." },
+    { titulo: "killall", imagen: killall.src, descripcion: "Finaliza procesos por nombre." },
+    { titulo: "killall terminar proceso", imagen: killallTerminarProceso.src, descripcion: "Ejemplo de cómo killall elimina múltiples procesos." },
+    { titulo: "pkill", imagen: pkill.src, descripcion: "Envía señales usando patrones." },
+    { titulo: "pkill terminar proceso", imagen: pkillTerminarProceso.src, descripcion: "Ejemplo práctico del uso de pkill para finalizar procesos." }
+];
+
+const prioridades = [
+    { titulo: "nice", imagen: nice.src, descripcion: "Ejecuta un proceso con prioridad modificada." },
+    { titulo: "renice", imagen: renice.src, descripcion: "Cambia la prioridad de un proceso activo." }
+];
+
+const proc = [
+    { titulo: "/proc – proceso", imagen: procInfoProceso.src, descripcion: "Información específica de un proceso." },
+    { titulo: "/proc/cpuinfo", imagen: procInfoCPU.src, descripcion: "Información del procesador." },
+    { titulo: "/proc/meminfo", imagen: procInfoMem.src, descripcion: "Estado actual de la memoria RAM." }
+];
+
 ---
 
-<div class="w-full px-60 space-y-12 bg-gray-950 pt-20 flex flex-col justify-center items-center" id="entrega6">
-    <div class="text-center mb-5">
-        <h1 class="text-center font-bold text-3xl text-heading mb-5">Entrega 3 actividad 3</h1>
-        <p class="text-heading text-xl">En esta entrega veremos los comanos para monitoreo de procesos, comandos para gestion de procesos, asignar prioridad a los procesos y los estados de los procesos</p>
-    </div>
-    <div>
-        <h2 class="text-3xl font-bold mb-4 text-heading">PS, TOP, HTOP, PSTREE, PGREP</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={ps.src} class="rounded-md" alt="ps aux" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">ps aux</h3>
-                <p class="text-sm text-center text-heading">Muestra información detallada de todos los procesos en ejecución.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={top.src} class="rounded-md" alt="top" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">top</h3>
-                <p class="text-sm text-center text-heading">Monitor en tiempo real del uso de CPU, memoria y procesos.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={htop.src} class="rounded-md" alt="htop" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">htop</h3>
-                <p class="text-sm text-center text-heading">Versión mejorada de top con interfaz interactiva y colores.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={pstree.src} class="rounded-md" alt="pstree -p" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">pstree -p</h3>
-                <p class="text-sm text-center text-heading">Muestra los procesos en forma de árbol mostrando jerarquías.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={pgrep.src} class="rounded-md" alt="pgrep" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">pgrep</h3>
-                <p class="text-sm text-center text-heading">Busca procesos por nombre y devuelve sus PID.</p>
-            </div>
-        </div>
+<div class="flex flex-col justify-center items-center gap-8 w-full bg-gray-950 pt-20 px-10" id="entrega6">
+
+    <div class="text-center max-w-3xl">
+        <h1 class="font-bold text-3xl text-heading mb-4">
+            Entrega 3 actividad 3
+        </h1>
+        <p class="text-heading text-xl">
+            Monitoreo, gestión, prioridades y estados de procesos en Linux.
+        </p>
     </div>
 
-    <div>
-        <h2 class="text-3xl font-bold mb-4 text-heading">Gestión de Procesos (kill, killall, pkill)</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={kill.src} class="rounded-md" alt="kill" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">kill</h3>
-                <p class="text-sm text-center text-heading">Envía señales a un proceso mediante su PID.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={killall.src} class="rounded-md" alt="killall" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">killall</h3>
-                <p class="text-sm text-center text-heading">Termina todos los procesos que coinciden con un nombre.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={pkill.src} class="rounded-md" alt="pkill" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">pkill</h3>
-                <p class="text-sm text-center text-heading">Permite enviar señales a procesos filtrando por nombre o patrón.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={killTerminarProceso.src} class="rounded-md" alt="kill terminar proceso" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">kill terminar proceso</h3>
-                <p class="text-sm text-center text-heading">Uso de kill para forzar la terminación de un proceso.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={killallTerminarProceso.src} class="rounded-md" alt="killall terminar proceso" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">killall terminar proceso</h3>
-                <p class="text-sm text-center text-heading">Ejemplo de cómo killall elimina múltiples procesos.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={pkillTerminarProceso.src} class="rounded-md" alt="pkill terminar proceso" />
-                <h3 class="mt-2 text-center font-medium text-2xl text-heading">pkill terminar proceso</h3>
-                <p class="text-sm text-center text-heading">Ejemplo práctico del uso de pkill para finalizar procesos.</p>
-            </div>
+    <section class="w-full">
+        <h2 class="text-3xl font-bold text-heading text-center mb-6">
+            PS, TOP, HTOP, PSTREE, PGREP
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            {monitoreo.map(step => (
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+            ))}
         </div>
-    </div>
+    </section>
 
-    <div>
-        <h2 class="text-3xl font-bold mb-4 text-heading">Prioridades (nice, renice)</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={nice.src} class="rounded-md" alt="nice" />
-                <h3 class="mt-2 font-semibold text-center">nice</h3>
-                <p class="text-sm text-center text-heading">Ejecuta un comando con una prioridad modificada.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={renice.src} class="rounded-md" alt="renice" />
-                <h3 class="mt-2 font-semibold text-center">renice</h3>
-                <p class="text-sm text-center text-heading">Cambia la prioridad de un proceso en ejecución.</p>
-            </div>
+        <h2 class="text-3xl font-bold text-heading text-center mb-6">
+            Gestión de Procesos
+        </h2>
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+            {gestion.map(step => (
+                    <div class="mb-4 break-inside-avoid">
+                        <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+                    </div>
+            ))}
         </div>
-    </div>
 
-    <div>
-        <h2 class="text-3xl font-bold mb-4 text-heading">Monitoreo del Sistema (archivos /proc)</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={procInfoProceso.src} class="rounded-md" alt="/proc info proceso" />
-                <h3 class="mt-2 font-semibold text-center">/proc – info proceso</h3>
-                <p class="text-sm text-center text-heading">Muestra los datos específicos de un proceso dentro de /proc.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={procInfoCPU.src} class="rounded-md" alt="cpuinfo" />
-                <h3 class="mt-2 font-semibold text-center">/proc/cpuinfo</h3>
-                <p class="text-sm text-center text-heading">Contiene información detallada sobre el procesador.</p>
-            </div>
-            <div class="bg-gray-900 rounded-lg shadow-md p-4">
-                <img src={procInfoMem.src} class="rounded-md" alt="meminfo" />
-                <h3 class="mt-2 font-semibold text-center">/proc/meminfo</h3>
-                <p class="text-sm text-center text-heading">Información del estado actual de la memoria RAM.</p>
-            </div>
+    <section class="w-full">
+        <h2 class="text-3xl font-bold text-heading text-center mb-6">
+            Prioridades
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            {prioridades.map(step => (
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+            ))}
         </div>
-    </div>
-    <div>
-        <h2 class="text-3xl font-bold mb-4 text-heading">Estados de los Procesos</h2>
-        <div class="bg-gray-900 rounded-lg shadow-md p-4 max-w-lg mx-auto">
-            <img src={estadosProcesos.src} class="rounded-md" alt="estados de procesos" />
-            <h3 class="mt-2 text-center font-medium text-2xl text-heading">Estados de procesos en Linux</h3>
-            <p class="text-sm text-center text-heading">Representa los diferentes estados posibles de un proceso.</p>
+    </section>
+
+    <section class="w-full">
+        <h2 class="text-3xl font-bold text-heading text-center mb-6">
+            Archivos /proc
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            {proc.map(step => (
+                    <CardPaso titulo={step.titulo} imagen={step.imagen} descripcion={step.descripcion} />
+            ))}
         </div>
-    </div>
+    </section>
+
+    <section class="w-full flex flex-col items-center">
+        <h2 class="text-3xl font-bold text-heading mb-6">
+            Estados de los Procesos
+        </h2>
+        <CardPaso
+                titulo="Estados de procesos en Linux"
+                imagen={estadosProcesos.src}
+                descripcion="Representa los diferentes estados posibles de un proceso."
+        />
+    </section>
     <a
             href="https://youtu.be/QcHdbPHP42Q"
             target="_blank"
